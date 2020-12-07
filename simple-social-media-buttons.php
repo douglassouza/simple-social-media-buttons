@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin name: Social Media Accessible
+Plugin name: Simple Social Media Buttons
 Plguin URI: https://wordpress.org/plugins
-Description: Widget of social media acessible
+Description: Adds a widget for sharing social media in a simple and easy to configure
 Author: Douglas Bernardes de Souza
-Version: 1.0
+Version: 0.8
 */
 
 /**
@@ -13,19 +13,19 @@ Version: 1.0
  * @package WP_Bootstrap_Starter
  */
 
-class social_media_accessible extends WP_Widget
+class simple_social_media_buttons extends WP_Widget
 {
 
     function __construct()
     {
         $widget_opt = array(
             'classname' => 'social_media_accessible',
-            'description' => __('Social Media Accessible', 'wp-bootstrap-starter')
+            'description' => __('Social Media Accessible', 'simple-social-media-buttons')
         );
         // parent::__construct( widget ID, widget name, widget description )
         parent::__construct(
             'social_media_accessible',
-            __('Social Media Accessible', 'wp-bootstrap-starter'),
+            __('Social Media Accessible', 'simple-social-media-buttons'),
             $widget_opt
         );
 
@@ -123,47 +123,47 @@ class social_media_accessible extends WP_Widget
 
         ?>
         <p>
-            <label for="<?= $this->get_field_id('title'); ?>"><?= __('Title:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('title'); ?>"><?= __('Title:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" id="<?= $this->get_field_id('title'); ?>" name="<?= $this->get_field_name('title'); ?>" type="text" value="<?= esc_attr($title); ?>" />
         </p>
         <p>
-            <label for="<?= $this->get_field_id('icon_size'); ?>"><?= __('Icon Size:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('icon_size'); ?>"><?= __('Icon Size:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" id="<?= $this->get_field_id('icon_size'); ?>" name="<?= $this->get_field_name('icon_size'); ?>" type="number" value="<?= intval($icon_size); ?>" />
         </p>
         <p>
-            <label for="<?= $this->get_field_id('icon_type'); ?>"><?= __('Icon Type:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('icon_type'); ?>"><?= __('Icon Type:', 'simple-social-media-buttons'); ?></label>
             <select class="widefat" id="<?= $this->get_field_id('icon_type'); ?>" name="<?= $this->get_field_name('icon_type'); ?>">
                 <?php foreach ($icon_type_options as $option) : ?>
-                    <option value="<?= $option; ?>" <?= selected($icon_type, $option); ?>><?= __($option, 'wp-bootstrap-starter'); ?></option>
+                    <option value="<?= $option; ?>" <?= selected($icon_type, $option); ?>><?= __($option, 'simple-social-media-buttons'); ?></option>
                 <?php endforeach; ?>
             </select>
         </p>
         <p>
-            <label for="<?= $this->get_field_id('icon_background'); ?>"><?= __('Icon Background:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('icon_background'); ?>"><?= __('Icon Background:', 'simple-social-media-buttons'); ?></label>
             <select class="widefat cmb-icon-background" id="<?= $this->get_field_id('icon_background'); ?>" name="<?= $this->get_field_name('icon_background'); ?>">
                 <?php foreach ($icon_background_options as $option) : ?>
-                    <option value="<?= $option; ?>" <?= selected($icon_background, $option); ?>><?= __($option, 'wp-bootstrap-starter'); ?></option>
+                    <option value="<?= $option; ?>" <?= selected($icon_background, $option); ?>><?= __($option, 'simple-social-media-buttons'); ?></option>
                 <?php endforeach; ?>
             </select>
         </p>
         <p  class="box-icon-background-custom <?= $icon_background != 'custom' ? 'hidden' : ''; ?>">
-            <label for="<?= $this->get_field_id('icon_background_color'); ?>"><?= __('Icon Background Color:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('icon_background_color'); ?>"><?= __('Icon Background Color:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" style="width:50px;" id="<?= $this->get_field_id('icon_background_color'); ?>" name="<?= $this->get_field_name('icon_background_color'); ?>" type="color" value="<?= esc_attr($icon_background_color); ?>" />
         </p>
         <p>
-            <label for="<?= $this->get_field_id('link_facebook'); ?>"><?= __('Link Facebook:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('link_facebook'); ?>"><?= __('Link Facebook:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" id="<?= $this->get_field_id('link_facebook'); ?>" name="<?= $this->get_field_name('link_facebook'); ?>" type="url" placeholder="https://www.facebook.com/ID" value="<?= esc_url($link_facebook); ?>" />
         </p>
         <p>
-            <label for="<?= $this->get_field_id('link_twitter'); ?>"><?= __('Link Twitter:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('link_twitter'); ?>"><?= __('Link Twitter:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" id="<?= $this->get_field_id('link_twitter'); ?>" name="<?= $this->get_field_name('link_twitter'); ?>" type="url" placeholder="https://twitter.com/ID" value="<?= esc_url($link_twitter); ?>" />
         </p>
         <p>
-            <label for="<?= $this->get_field_id('link_instagram'); ?>"><?= __('Link Instagram:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('link_instagram'); ?>"><?= __('Link Instagram:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" id="<?= $this->get_field_id('link_instagram'); ?>" name="<?= $this->get_field_name('link_instagram'); ?>" type="url" placeholder="https://www.instagram.com/ID" value="<?= esc_url($link_instagram); ?>" />
         </p>
         <p>
-            <label for="<?= $this->get_field_id('link_linkedin'); ?>"><?= __('Link Linkedin:', 'wp-bootstrap-starter'); ?></label>
+            <label for="<?= $this->get_field_id('link_linkedin'); ?>"><?= __('Link Linkedin:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" id="<?= $this->get_field_id('link_linkedin'); ?>" name="<?= $this->get_field_name('link_linkedin'); ?>" type="url" placeholder="https://www.linkedin.com/in/ID" value="<?= esc_url($link_linkedin); ?>" />
         </p>
 <?php

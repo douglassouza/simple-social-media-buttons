@@ -1,0 +1,57 @@
+/* Begin - Bootstrap Custom */
+.text-center {
+    text-align: center !important;
+}
+
+.align-middle {
+    vertical-align: middle !important;
+}
+
+.d-inline-block {
+    display: inline-block !important;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.rounded {
+    border-radius: 0.25rem !important;
+}
+
+/* End - Bootstrap Custom */
+
+.fab {
+    text-decoration: none;
+}
+
+.fab:hover {
+    opacity: 0.7;
+    text-decoration: none;
+    color: white;
+}
+
+.fa-facebook-f {
+    background-color: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background-color: #55ACEE;
+    color: white;
+}
+
+.fa-linkedin-in {
+    background: #007bb5;
+    color: white;
+  }
+  
+.fa-youtube {
+background: #bb0000;
+color: white;
+}
+
+.fa-instagram {
+background: #BB298E;
+color: white;
+}

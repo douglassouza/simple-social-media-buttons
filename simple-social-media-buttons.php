@@ -4,6 +4,7 @@ Plugin name: Simple Social Media Buttons
 Plguin URI: https://wordpress.org/plugins
 Description: Adds a widget for sharing social media in a simple and easy to configure
 Author: Douglas Bernardes de Souza
+Author URI: https://github.com/douglassouza
 Version: 0.8
 */
 
@@ -19,13 +20,13 @@ class simple_social_media_buttons extends WP_Widget
     function __construct()
     {
         $widget_opt = array(
-            'classname' => 'social_media_accessible',
-            'description' => __('Social Media Accessible', 'simple-social-media-buttons')
+            'classname' => 'simple_social_media_buttons',
+            'description' => __('Simple Social Media Buttons', 'simple-social-media-buttons')
         );
         // parent::__construct( widget ID, widget name, widget description )
         parent::__construct(
-            'social_media_accessible',
-            __('Social Media Accessible', 'simple-social-media-buttons'),
+            'simple_social_media_buttons',
+            __('Simple Social Media Buttons', 'simple-social-media-buttons'),
             $widget_opt
         );
 
@@ -41,7 +42,7 @@ class simple_social_media_buttons extends WP_Widget
         $title = apply_filters('widget_title', esc_html($instance['title']));
         $icon_size = $instance['icon_size'];
         $class_icon = 'text-center align-middle d-inline-block ' . ($instance['icon_type'] == 'square' ? '' : ($instance['icon_type'] == 'square with round border' ? 'rounded' : 'rounded-circle'));
-        $style_icon = "height:{$icon_size}px;line-height:{$icon_size}px;width:{$icon_size}px;font-size:" . ($icon_size - 12) . "px" . ($instance['icon_background'] == 'original' ? '' : ';background-color:' . ($instance['icon_background'] == 'transparent' ? 'transparent' : $instance['icon_background_color'])) . ";";
+        $style_icon = "height:{$icon_size}px;line-height:{$icon_size}px;width:{$icon_size}px;font-size:" . ($icon_size - 12) . "px" . ($instance['icon_background'] == 'original' ? '' : ';color:' . $instance['icon_foreground_color'] .';background-color:' . ($instance['icon_background'] == 'transparent' ? 'transparent' : $instance['icon_background_color'])) . ";";
 
         echo $args['before_widget'];
 
@@ -101,6 +102,10 @@ class simple_social_media_buttons extends WP_Widget
         if (isset($instance['icon_background']))
             $icon_background = $instance['icon_background'];
 
+        $icon_foreground_color = '#0073AA';
+        if (isset($instance['icon_foreground_color']))
+            $icon_foreground_color = $instance['icon_foreground_color'];
+
         $icon_background_color = '#000000';
         if (isset($instance['icon_background_color']))
             $icon_background_color = $instance['icon_background_color'];
@@ -146,6 +151,10 @@ class simple_social_media_buttons extends WP_Widget
                 <?php endforeach; ?>
             </select>
         </p>
+        <p  class="box-icon-foreground-custom <?= $icon_background != 'original' ? '' : 'hidden'; ?>">
+            <label for="<?= $this->get_field_id('icon_foreground_color'); ?>"><?= __('Icon Foreground Color:', 'simple-social-media-buttons'); ?></label>
+            <input class="widefat" style="width:50px;" id="<?= $this->get_field_id('icon_foreground_color'); ?>" name="<?= $this->get_field_name('icon_foreground_color'); ?>" type="color" value="<?= esc_attr($icon_foreground_color); ?>" />
+        </p>
         <p  class="box-icon-background-custom <?= $icon_background != 'custom' ? 'hidden' : ''; ?>">
             <label for="<?= $this->get_field_id('icon_background_color'); ?>"><?= __('Icon Background Color:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" style="width:50px;" id="<?= $this->get_field_id('icon_background_color'); ?>" name="<?= $this->get_field_name('icon_background_color'); ?>" type="color" value="<?= esc_attr($icon_background_color); ?>" />
@@ -177,6 +186,7 @@ class simple_social_media_buttons extends WP_Widget
         $instance['icon_size'] = !empty($new_instance['icon_size']) ? intval($new_instance['icon_size']) : 32;
         $instance['icon_type'] = $new_instance['icon_type'];
         $instance['icon_background'] = $new_instance['icon_background'];
+        $instance['icon_foreground_color'] = $new_instance['icon_foreground_color'];
         $instance['icon_background_color'] = $new_instance['icon_background_color'];
         $instance['link_facebook'] = !empty($new_instance['link_facebook']) ? esc_url($new_instance['link_facebook']) : '';
         $instance['link_twitter'] = !empty($new_instance['link_twitter']) ? esc_url($new_instance['link_twitter']) : '';
@@ -198,8 +208,8 @@ class simple_social_media_buttons extends WP_Widget
     }
 }
 
-function social_media_accessible_register_widget()
+function simple_social_media_buttons_register_widget()
 {
-    register_widget('social_media_accessible');
+    register_widget('simple_social_media_buttons');
 }
-add_action('widgets_init', 'social_media_accessible_register_widget');
+add_action('widgets_init', 'simple_social_media_buttons_register_widget');

@@ -9,9 +9,9 @@ Version: 0.8
 */
 
 /**
- * WP Bootstrap Starter Theme Widgets
+ * Simple Social Media Buttons Widgets
  *
- * @package WP_Bootstrap_Starter
+ * @package simple_social_media_buttons
  */
 
 class simple_social_media_buttons extends WP_Widget

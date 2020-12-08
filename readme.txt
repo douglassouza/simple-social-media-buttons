@@ -1,5 +1,6 @@
-=== Plugin Name ===
+=== Plugin Simple Social Media Buttons ===
 Contributors: bugtoo
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=JPX5QVBR7Z2N6&currency_code=BRL
 Tags: social media, twitter, facebook, linkedin, youtube, instagram, social, icons
 Requires at least: 4.7
 Tested up to: 5.5.3
@@ -59,6 +60,10 @@ It is not possible to adjust the order of the icons.
 2. Sidebar with icons square with round border
 3. Sidebar with icons round
 
+== Help ==
+
+Please add a post on the Wordpress.org support forums with the plugin tagged.
+
 == Changelog ==
 
 = 1.0 =
@@ -66,3 +71,8 @@ It is not possible to adjust the order of the icons.
 * Add custom icon background color
 * Option to change icon size
 * Add customization of the icon type
+
+== Upgrade Notice ==
+
+= 1.0 =
+This update contains more customization options for icons which will make your theme even more beautiful.

@@ -44,14 +44,24 @@
 .fa-linkedin-in {
     background: #007bb5;
     color: white;
-  }
-  
-.fa-youtube {
-background: #bb0000;
-color: white;
 }
 
 .fa-instagram {
-background: #BB298E;
-color: white;
+    background: #BB298E;
+    color: white;
+}
+  
+.fa-youtube {
+    background: #FF0000;
+    color: white;
+}
+
+.fa-whatsapp {
+    background: #03E677;
+    color: white;
+}
+
+.fa-telegram-plane {
+    background: #27A7E5;
+    color: white;
 }

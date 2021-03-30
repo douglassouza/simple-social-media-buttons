@@ -66,9 +66,24 @@ class simple_social_media_buttons extends WP_Widget
             <a href="<?= $instance['link_instagram']; ?>" class="fab fa-instagram <?= $class_icon; ?>" target="_blank" style="<?= $style_icon; ?>"><span class="sr-only">Instagram</span></a>
         <?php
         endif;
+        if (!empty($instance['link_youtube'])) :
+        ?>
+            <a href="<?= $instance['link_youtube']; ?>" class="fab fa-youtube <?= $class_icon; ?>" target="_blank" style="<?= $style_icon; ?>"><span class="sr-only">Youtube</span></a>
+        <?php
+        endif;
         if (!empty($instance['link_linkedin'])) :
         ?>
             <a href="<?= $instance['link_linkedin']; ?>" class="fab fa-linkedin-in <?= $class_icon; ?>" target="_blank" style="<?= $style_icon; ?>"><span class="sr-only">Linkedin</span></a>
+        <?php
+        endif;
+        if (!empty($instance['link_whatsapp'])) :
+        ?>
+            <a href="<?= $instance['link_whatsapp']; ?>" class="fab fa-whatsapp <?= $class_icon; ?>" target="_blank" style="<?= $style_icon; ?>"><span class="sr-only">Whatsapp</span></a>
+        <?php
+        endif;
+        if (!empty($instance['link_telegram'])) :
+        ?>
+            <a href="<?= $instance['link_telegram']; ?>" class="fab fa-telegram-plane <?= $class_icon; ?>" target="_blank" style="<?= $style_icon; ?>"><span class="sr-only">Telegram</span></a>
         <?php
         endif;
         echo $args['after_widget'];
@@ -122,9 +137,21 @@ class simple_social_media_buttons extends WP_Widget
         if (isset($instance['link_instagram']))
             $link_instagram = $instance['link_instagram'];
 
+        $link_youtube = '';
+        if (isset($instance['link_youtube']))
+            $link_youtube = $instance['link_youtube'];
+
         $link_linkedin = '';
         if (isset($instance['link_linkedin']))
             $link_linkedin = $instance['link_linkedin'];
+
+        $link_whatsapp = '';
+        if (isset($instance['link_whatsapp']))
+            $link_whatsapp = $instance['link_whatsapp'];
+            
+        $link_telegram = '';
+        if (isset($instance['link_telegram']))
+            $link_telegram = $instance['link_telegram'];
 
         ?>
         <p>
@@ -172,8 +199,20 @@ class simple_social_media_buttons extends WP_Widget
             <input class="widefat" id="<?= $this->get_field_id('link_instagram'); ?>" name="<?= $this->get_field_name('link_instagram'); ?>" type="url" placeholder="https://www.instagram.com/ID" value="<?= esc_url($link_instagram); ?>" />
         </p>
         <p>
+            <label for="<?= $this->get_field_id('link_youtube'); ?>"><?= __('Link Youtube:', 'simple-social-media-buttons'); ?></label>
+            <input class="widefat" id="<?= $this->get_field_id('link_youtube'); ?>" name="<?= $this->get_field_name('link_youtube'); ?>" type="url" placeholder="https://www.youtube.com/ID" value="<?= esc_url($link_youtube); ?>" />
+        </p>
+        <p>
             <label for="<?= $this->get_field_id('link_linkedin'); ?>"><?= __('Link Linkedin:', 'simple-social-media-buttons'); ?></label>
             <input class="widefat" id="<?= $this->get_field_id('link_linkedin'); ?>" name="<?= $this->get_field_name('link_linkedin'); ?>" type="url" placeholder="https://www.linkedin.com/in/ID" value="<?= esc_url($link_linkedin); ?>" />
+        </p>
+        <p>
+            <label for="<?= $this->get_field_id('link_whatsapp'); ?>"><?= __('Link Whatsapp:', 'simple-social-media-buttons'); ?></label>
+            <input class="widefat" id="<?= $this->get_field_id('link_whatsapp'); ?>" name="<?= $this->get_field_name('link_whatsapp'); ?>" type="url" placeholder="https://api.whatsapp.com/send?phone=PHONE" value="<?= esc_url($link_whatsapp); ?>" />
+        </p>
+        <p>
+            <label for="<?= $this->get_field_id('link_telegram'); ?>"><?= __('Link Telegram:', 'simple-social-media-buttons'); ?></label>
+            <input class="widefat" id="<?= $this->get_field_id('link_telegram'); ?>" name="<?= $this->get_field_name('link_telegram'); ?>" type="url" placeholder="https://t.me/ID" value="<?= esc_url($link_telegram); ?>" />
         </p>
 <?php
     }
@@ -191,7 +230,10 @@ class simple_social_media_buttons extends WP_Widget
         $instance['link_facebook'] = !empty($new_instance['link_facebook']) ? esc_url($new_instance['link_facebook']) : '';
         $instance['link_twitter'] = !empty($new_instance['link_twitter']) ? esc_url($new_instance['link_twitter']) : '';
         $instance['link_instagram'] = !empty($new_instance['link_instagram']) ? esc_url($new_instance['link_instagram']) : '';
+        $instance['link_youtube'] = !empty($new_instance['link_youtube']) ? esc_url($new_instance['link_youtube']) : '';
         $instance['link_linkedin'] = !empty($new_instance['link_linkedin']) ? esc_url($new_instance['link_linkedin']) : '';
+        $instance['link_whatsapp'] = !empty($new_instance['link_whatsapp']) ? esc_url($new_instance['link_whatsapp']) : '';
+        $instance['link_telegram'] = !empty($new_instance['link_telegram']) ? esc_url($new_instance['link_telegram']) : '';
 
         return $instance;
     }
